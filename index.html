@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loading Bar</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<style>
+.{
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: #white;
+}
+.percent-count{
+  width: 300px;
+  height: 20px;
+  margin: 20px auto;
+  font-size: 50px;
+  text-align: center;
+  color: #black;
+}
+.progress-bar{
+  width: 506px;
+  height: 26px;
+  background-color: #fff;
+  border-radius: 13px;
+  padding: 3px;
+  margin: 50px auto;
+}
+.progress{
+  width: 503px;
+  height: 23px;
+  border-radius: 10px;
+  background-color: dodgerblue;
+}
+.button {
+  display: inline-block;
+  background: #4285f4;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 20px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+.button:hover {
+  -webkit-transform: translate(0px, -10px) scale(1.2);
+          transform: translate(0px, -10px) scale(1.2);
+}
+</style>
+<body>
+<center>
+<img src="LOGO.png" class="img-rounded" alt="logo itk" style="width:250px;height:200px;">
+</center>
+<div id="percentCount" class="percent-count">Welcome</div>
+<div class="progress-bar">
+  <div class="progress" id="progress" ></div>
+</div>
+<center>
+<br>
+<div class="button" onclick="move()">Go To ITK</div>
+</center>
+<script>
+function move() {
+  var prg = document.getElementById('progress');
+  var percent = document.getElementById('percentCount');
+  var counter = 5;
+  var progress = 25;
+  var id = setInterval(frame, 50);
+  function frame() {
+    if (progress == 500 && counter == 100) {
+      clearInterval(id);
+      window.location.href = 'http://itk.ac.id/';
+    } else {
+      progress += 5;
+      counter += 1;
+      prg.style.width = progress + 'px';
+      percent.innerHTML = counter + '%';
+    }
+  }
+}
+</script>
+</body>
+</html>
